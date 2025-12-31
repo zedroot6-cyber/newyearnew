@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Eya | New Year 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background: #0a0a14;
+            color: #e6f7ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* PASSWORD GATE - CLEAN */
+        #passwordGate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s;
+        }
+        
+        .gate-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        .gate-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #4cc9f0;
+            font-weight: 300;
+        }
+        
+        .gate-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #a0c8ff;
+            opacity: 0.9;
+        }
+        
+        #passwordInput {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(100, 150, 255, 0.3);
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        #passwordInput:focus {
+            outline: none;
+            border-color: #4cc9f0;
+            box-shadow: 0 0 20px rgba(76, 201, 240, 0.3);
+        }
+        
+        #submitPassword {
+            background: linear-gradient(135deg, #1e5cb3 0%, #4cc9f0 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            letter-spacing: 1px;
+        }
+        
+        #submitPassword:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(30, 92, 179, 0.4);
+        }
+        
+        .gate-error {
+            color: #ff6b8b;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            display: none;
+        }
+        
+        .gate-hint {
+            margin-top: 25px;
+            color: rgba(160, 200, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* MAIN CONTENT - HIDDEN INITIALLY */
+        .main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        /* HEADER */
+        header {
+            background: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(76, 201, 240, 0.2);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            color: #4cc9f0;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        nav a {
+            color: #e6f7ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 0;
+            position: relative;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4cc9f0;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        nav a:hover {
+            color: #4cc9f0;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            background: linear-gradient(135deg, rgba(10, 10, 20, 0.9) 0%, rgba(26, 26, 46, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(30, 92, 179, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(76, 201, 240, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .hero-text h1 span {
+            color: #4cc9f0;
+            font-weight: 600;
+            display: block;
+            font-size: 4.5rem;
+            margin-top: 10px;
+        }
+        
+        .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #a0c8ff;
+            max-width: 600px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e5cb3 0%, #4cc9f0 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(30, 92, 179, 0.4);
+        }
+        
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .gift-box {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(145deg, #1a1a2e, #0a0a14);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(76, 201, 240, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .gift-box:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 30px 70px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(76, 201, 240, 0.5);
+        }
+        
+        .gift-lid {
+            position: absolute;
+            top: -40px;
+            width: 320px;
+            height: 60px;
+            background: linear-gradient(145deg, #2a2a4e, #1a1a2e);
+            border-radius: 15px 15px 10px 10px;
+            transition: transform 0.8s;
+            transform-origin: bottom center;
+        }
+        
+        .gift-lid.open {
+            transform: rotateX(120deg);
+        }
+        
+        .gift-icon {
+            font-size: 5rem;
+            color: #4cc9f0;
+        }
+        
+        /* COUNTDOWN */
+        .countdown-section {
+            padding: 100px 0;
+            background: rgba(15, 15, 25, 0.8);
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #4cc9f0;
+            font-weight: 300;
+        }
+        
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            min-width: 150px;
+            border: 1px solid rgba(76, 201, 240, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .countdown-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(76, 201, 240, 0.4);
+        }
+        
+        .countdown-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #4cc9f0;
+            margin-bottom: 10px;
+        }
+        
+        .countdown-label {
+            font-size: 1.2rem;
+            color: #a0c8ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* LETTERS SECTION */
+        .letters-section {
+            padding: 120px 0;
+        }
+        
+        .letters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .letter-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid rgba(76, 201, 240, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .letter-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #1e5cb3, #4cc9f0);
+        }
+        
+        .letter-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(76, 201, 240, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .letter-date {
+            color: #4cc9f0;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .letter-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .letter-content {
+            font-size: 1.2rem;
+            color: #d1e7ff;
+            line-height: 1.7;
+        }
+        
+        .letter-signature {
+            margin-top: 25px;
+            text-align: right;
+            color: #4cc9f0;
+            font-style: italic;
+            font-size: 1.3rem;
+        }
+        
+        /* MEMORY SECTION */
+        .memory-section {
+            padding: 100px 0;
+            background: rgba(15, 15, 25, 0.8);
+        }
+        
+        .memory-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .memory-text h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #4cc9f0;
+        }
+        
+        .memory-text p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #d1e7ff;
+        }
+        
+        .memory-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(76, 201, 240, 0.1);
+            padding: 20px 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 1px solid rgba(76, 201, 240, 0.3);
+        }
+        
+        .memory-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .heart-container {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #1e5cb3, #4cc9f0);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: heartbeat 2s infinite;
+        }
+        
+        .heart-container:before,
+        .heart-container:after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #1e5cb3, #4cc9f0);
+            border-radius: 50%;
+        }
+        
+        .heart-container:before {
+            top: -50px;
+            left: 0;
+        }
+        
+        .heart-container:after {
+            top: 0;
+            left: -50px;
+        }
+        
+        .heart-date {
+            position: relative;
+            z-index: 2;
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        /* FOOTER */
+        footer {
+            padding: 80px 0 40px;
+            background: rgba(10, 10, 20, 0.95);
+            text-align: center;
+            border-top: 1px solid rgba(76, 201, 240, 0.2);
+        }
+        
+        .footer-heart {
+            font-size: 4rem;
+            color: #4cc9f0;
+            margin-bottom: 30px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        .footer-text {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #a0c8ff;
+        }
+        
+        .footer-signature {
+            font-size: 3rem;
+            color: #4cc9f0;
+            margin-bottom: 20px;
+        }
+        
+        /* MODAL */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: rgba(15, 15, 25, 0.95);
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 700px;
+            width: 90%;
+            border: 1px solid rgba(76, 201, 240, 0.3);
+        }
+        
+        .modal-icon {
+            font-size: 5rem;
+            color: #4cc9f0;
+            margin-bottom: 30px;
+        }
+        
+        .modal-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .modal-text {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #d1e7ff;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #4cc9f0;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        /* ANIMATIONS */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-content, .memory-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-text h1 span {
+                font-size: 3.5rem;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-text h1 span {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .countdown-item {
+                min-width: 120px;
+                padding: 20px;
+            }
+            
+            .countdown-number {
+                font-size: 3rem;
+            }
+            
+            .letters-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .gate-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        /* SIMPLE SNOW */
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .snowflake {
+            position: absolute;
+            color: rgba(76, 201, 240, 0.7);
+            font-size: 1rem;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <!-- PASSWORD GATE -->
+    <div id="passwordGate">
+        <div class="gate-box">
+            <h1 class="gate-title">For Eya Only</h1>
+            <p class="gate-subtitle">Enter our special word to unlock your New Year gift</p>
+            <input type="password" id="passwordInput" placeholder="Type the magic word..." autocomplete="off">
+            <button id="submitPassword">Unlock</button>
+            <div class="gate-error" id="gateError">Incorrect. Try again, my love.</div>
+            <div class="gate-hint">Hint: How long I want to be with you ❤️</div>
+        </div>
+    </div>
+    
+    <!-- MAIN CONTENT -->
+    <div class="main-content" id="mainContent">
+        <!-- HEADER -->
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">For Eya</div>
+                    <nav>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#countdown">Countdown</a></li>
+                            <li><a href="#letters">Letters</a></li>
+                            <li><a href="#memory">Our Story</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Happy New Year<br><span>Eya</span></h1>
+                        <p>Our first New Year together since September 11, 2024</p>
+                        <button class="cta-button" id="openGift">Open Your Gift</button>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="gift-box" id="giftBox">
+                            <div class="gift-lid" id="giftLid"></div>
+                            <div class="gift-icon">💙</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- COUNTDOWN -->
+        <section class="countdown-section" id="countdown">
+            <div class="container">
+                <h2 class="section-title">New Year Countdown</h2>
+                <div class="countdown-grid">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- LETTERS -->
+        <section class="letters-section" id="letters">
+            <div class="container">
+                <h2 class="section-title">My Love Letters</h2>
+                <div class="letters-grid">
+                    <!-- Letter 1 -->
+                    <div class="letter-card">
+                        <div class="letter-date">JANUARY 2025</div>
+                        <h3 class="letter-title">New Beginnings</h3>
+                        <p class="letter-content">My dearest Eya, this New Year marks our first full year together. I promise to make every day special for you.</p>
+                        <div class="letter-signature">- Mhdy</div>
+                    </div>
+                    
+                    <!-- Letter 2 -->
+                    <div class="letter-card">
+                        <div class="letter-date">FEBRUARY 2025</div>
+                        <h3 class="letter-title">My Valentine</h3>
+                        <p class="letter-content">Eya, you are the most beautiful person I've ever known. Every day with you feels like Valentine's Day.</p>
+                        <div class="letter-signature">- Mhdy</div>
+                    </div>
+                    
+                    <!-- Letter 3 -->
+                    <div class="letter-card">
+                        <div class="letter-date">SPRING 2025</div>
+                        <h3 class="letter-title">Growing Together</h3>
+                        <p class="letter-content">Like spring flowers, our love grows stronger every day. I cherish every moment with you.</p>
+                        <div class="letter-signature">- Mhdy</div>
+                    </div>
+                    
+                    <!-- Letter 4 -->
+                    <div class="letter-card">
+                        <div class="letter-date">SUMMER 2025</div>
+                        <h3 class="letter-title">Summer Love</h3>
+                        <p class="letter-content">I can't wait to create beautiful summer memories with you. You bring sunshine to my life.</p>
+                        <div class="letter-signature">- Mhdy</div>
+                    </div>
+                    
+                    <!-- Letter 5 -->
+                    <div class="letter-card">
+                        <div class="letter-date">AUTUMN 2025</div>
+                        <h3 class="letter-title">Our Anniversary</h3>
+                        <p class="letter-content">Celebrating our first year together. Thank you for being the best thing that ever happened to me.</p>
+                        <div class="letter-signature">- Mhdy</div>
+                    </div>
+                    
+                    <!-- Letter 6 -->
+                    <div class="letter-card">
+                        <div class="letter-date">DECEMBER 2025</div>
+                        <h3 class="letter-title">End of Year Love</h3>
+                        <p class="letter-content">As this year ends, my love for you only grows stronger. You are my forever.</p>
+                        <div class="letter-signature">- Mhdy</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- MEMORY -->
+        <section class="memory-section" id="memory">
+            <div class="container">
+                <div class="memory-content">
+                    <div class="memory-text">
+                        <h2>Our Beginning</h2>
+                        <p>September 11, 2024 - the day my life changed forever. From our first conversation, I knew you were special.</p>
+                        <p>This New Year is our first together, and I promise to make it the most memorable year of your life.</p>
+                        <div class="memory-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Since September 11, 2024</span>
+                        </div>
+                    </div>
+                    <div class="memory-visual">
+                        <div class="heart-container">
+                            <div class="heart-date">09/11/24</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FOOTER -->
+        <footer>
+            <div class="container">
+                <div class="footer-heart">❤️</div>
+                <p class="footer-text">This New Year and every year after, I choose you. Thank you for being my everything, Eya.</p>
+                <div class="footer-signature">Love Always, Mhdy</div>
+            </div>
+        </footer>
+        
+        <!-- GIFT MODAL -->
+        <div class="modal" id="giftModal">
+            <div class="modal-content">
+                <button class="close-modal" id="closeModal">×</button>
+                <div class="modal-icon">💌</div>
+                <h2 class="modal-title">For My Eya</h2>
+                <p class="modal-text">My love, this gift contains all my love for you in the coming year. Each letter is a promise, a dream, and a piece of my heart.</p>
+                <p class="modal-text">Since September 11, 2024, you've been my greatest blessing. I can't wait to spend this New Year with you.</p>
+                <button class="cta-button" id="viewLetters">Read Your Letters</button>
+            </div>
+        </div>
+        
+        <!-- SNOWFLAKES -->
+        <div class="snowflakes" id="snowflakes"></div>
+    </div>
+
+    <script>
+        // PASSWORD GATE
+        const passwordGate = document.getElementById('passwordGate');
+        const passwordInput = document.getElementById('passwordInput');
+        const submitPassword = document.getElementById('submitPassword');
+        const gateError = document.getElementById('gateError');
+        const mainContent = document.getElementById('mainContent');
+        
+        // Password is "forever"
+        const CORRECT_PASSWORD = "forever";
+        
+        function unlockSite() {
+            const input = passwordInput.value.trim().toLowerCase();
+            
+            if (input === CORRECT_PASSWORD) {
+                // Hide gate with animation
+                passwordGate.style.opacity = '0';
+                
+                setTimeout(() => {
+                    passwordGate.style.display = 'none';
+                    
+                    // Show main content with animation
+                    mainContent.style.display = 'block';
+                    setTimeout(() => {
+                        mainContent.style.opacity = '1';
+                        
+                        // Start all functions
+                        initSite();
+                    }, 50);
+                }, 500);
+            } else {
+                // Show error
+                gateError.style.display = 'block';
+                passwordInput.style.borderColor = '#ff6b8b';
+                
+                // Clear input after delay
+                setTimeout(() => {
+                    passwordInput.value = '';
+                    passwordInput.style.borderColor = '';
+                    gateError.style.display = 'none';
+                }, 1500);
+            }
+        }
+        
+        submitPassword.addEventListener('click', unlockSite);
+        
+        passwordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                unlockSite();
+            }
+        });
+        
+        // Initialize site functions
+        function initSite() {
+            createSnowflakes();
+            startCountdown();
+            setupGift();
+            setupModal();
+            setupNavigation();
+        }
+        
+        // CREATE SNOWFLAKES
+        function createSnowflakes() {
+            const container = document.getElementById('snowflakes');
+            const count = 50;
+            
+            for (let i = 0; i < count; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = '❄';
+                
+                // Random properties
+                const size = Math.random() * 20 + 10;
+                const startX = Math.random() * 100;
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 10;
+                
+                snowflake.style.left = `${startX}%`;
+                snowflake.style.fontSize = `${size}px`;
+                snowflake.style.animationDuration = `${duration}s`;
+                snowflake.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(snowflake);
+            }
+        }
+        
+        // COUNTDOWN FUNCTION
+        function startCountdown() {
+            function update() {
+                const now = new Date();
+                const newYear = new Date(now.getFullYear() + 1, 0, 1, 0, 0, 0);
+                const timeDiff = newYear - now;
+                
+                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            update(); // Initial call
+            setInterval(update, 1000); // Update every second
+        }
+        
+        // GIFT FUNCTION
+        function setupGift() {
+            const giftBox = document.getElementById('giftBox');
+            const giftLid = document.getElementById('giftLid');
+            const openGiftBtn = document.getElementById('openGift');
+            const giftModal = document.getElementById('giftModal');
+            
+            function openGift() {
+                // Animate lid
+                giftLid.classList.add('open');
+                
+                // Show modal after delay
+                setTimeout(() => {
+                    giftModal.style.display = 'flex';
+                }, 800);
+            }
+            
+            giftBox.addEventListener('click', openGift);
+            openGiftBtn.addEventListener('click', openGift);
+        }
+        
+        // MODAL FUNCTION
+        function setupModal() {
+            const giftModal = document.getElementById('giftModal');
+            const closeModal = document.getElementById('closeModal');
+            const viewLetters = document.getElementById('viewLetters');
+            
+            closeModal.addEventListener('click', () => {
+                giftModal.style.display = 'none';
+            });
+            
+            viewLetters.addEventListener('click', () => {
+                giftModal.style.display = 'none';
+                
+                // Scroll to letters section
+                document.querySelector('#letters').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Close modal when clicking outside
+            giftModal.addEventListener('click', (e) => {
+                if (e.target === giftModal) {
+                    giftModal.style.display = 'none';
+                }
+            });
+        }
+        
+        // SMOOTH NAVIGATION
+        function setupNavigation() {
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+            
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(10, 10, 20, 0.98)';
+                } else {
+                    header.style.background = 'rgba(10, 10, 20, 0.95)';
+                }
+            });
+        }
+        
+        // Auto-focus password input
+        window.addEventListener('load', () => {
+            passwordInput.focus();
+        });
+    </script>
+</body>
+</html>
